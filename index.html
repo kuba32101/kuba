@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>CHUJ</title>
+	<style>
+		body {
+			background-color: #3fb8d4;
+			text-align: center;
+			font-family: sans-serif;
+			margin: 0;
+		}
+		header {
+			background: #8c8c8c;
+			padding: 15px;
+		}
+		select {
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 7px;
+			border: 1px #000000;
+			cursor: pointer;
+		}
+		.sekcja {
+			margin-top: 20px;
+		}
+	</style>
+	<script>
+		function PokazSekcje(id) {
+			if (id == "") {
+				document.querySelectorAll(".sekcja").forEach(sekcja => {
+					sekcja.style.display = "block";
+			});
+			} else {
+				document.querySelectorAll(".sekcja").forEach(sekcja => {
+					sekcja.style.display = "none";
+				});
+				document.getElementById(id).style.display = "block";
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<select onchange="PokazSekcje(this.value)">
+			<option value="">-- Wszystkie opcje --</option>
+			<option value="pawel">PAWEŁ JUMPER</option>
+			<option value="penis">Mały penis - przyczyny</option>
+		</select>
+	</header>
+	<div id="pawel" class="sekcja">
+		<h2>PAWEŁ JUMPER</h2>
+		<p>
+		<a href="https://www.youtube.com/watch?v=OKiqbg3O8p4" target="_blank">
+			<img src="https://img.youtube.com/vi/OKiqbg3O8p4/hqdefault.jpg" height="300" alt="PAWEŁ JUMPER">
+		</a>
+		</p>
+	</div>
+	<div id="penis" class="sekcja">
+		<h2>Mały penis - przyczyny</h2>
+		<p>
+			<a href="https://www.medonet.pl/zdrowie,maly-penis---przyczyny--srednia-dlugosc-penisa--metody-powiekszania,artykul,77246290.html">
+				<img src="https://cdn.medonet.pl/1/Owpk9lBaHR0cHM6Ly9vY2RuLmV1L3B1bHNjbXMvTURBXy81NDM4NjRkMTg2NTZiNjZhYjIxNDU4ZWJmZjA3NWVjZC5qcGeSlQMAzLjNF4DNDTiTBc0HWM0EJN4AAqEwB6ExBA" height="300" width="500" alt="Mały penis - przyczyny">
+			</a>
+		</p>
+	</div>
+</body>
+</html>
