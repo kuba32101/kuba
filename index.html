@@ -11,27 +11,26 @@
 		.inp {
 			border-radius:3px;
 			border: solid black 2px;
-			background: #3094ff;
+			background: #d4f542;
 		}
 		.but {
-			border-radius:3px;
+			border-radius:15px;
 			border: solid black 2px;
-			background: #3094ff;
+			background: #d4f542;
 			cursor: pointer;
 		}
 		.kan {
 			color: #515251;
+			border: solid black 2px;
+			border-radius: 10px;
 		}
 		body {
     			text-align: center;
     			font-family: sans-serif;
     			margin: 0;
     			display: flex;
-    
-    			background-image: url("https://www.jerzy-binkowski.com.pl/wp-content/uploads/papierz-jan-pawel-ii.jpg");    	 					background-size: cover;
-    			background-repeat: no-repeat;
-    			background-attachment: fixed;
-}
+    			background-color: #6be3d7; 
+ 		}
 		#sidebar {
 			width: 200px;
 			background: #999999;
@@ -55,7 +54,6 @@
 	</style>
 	<script>
 		let currentChannel = "czat";
-
 		let channelMessages = {
 			zasady: [],
 			ogloszenia: [],
@@ -80,10 +78,17 @@
 			const input = document.getElementById("msg");
 			const msg = input.value;
 			if (msg.trim() === "") return;
-			const fullMsg = "[" + currentChannel + "] " + msg;
+			const fullMsg = msg;
 			channelMessages[currentChannel].push(fullMsg);
 			const li = document.createElement("li");
 			li.textContent = fullMsg;
+			if (/Mobi|Android/i.test(navigator.userAgent)) {
+				li.textContent = fullMsg + " 📱";
+			} else if (/Tablet|iPad|Nexus 7|Nexus 10/i.test(navigator.userAgent)) {
+				li.textContent = fullMsg + " 📱";
+			} else {
+				li.textContent = fullMsg + " 💻";
+			}
 			document.getElementById("messages").appendChild(li);
 			input.value = "";
 		}
